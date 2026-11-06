@@ -1,0 +1,31 @@
+{
+  "location_name": "甘肃省庆阳市西峰区城市代表点",
+  "request_latitude": 35.7300313,
+  "request_longitude": 107.6462537,
+  "coordinate_status": "请求坐标用于接口查询；历史数据坐标为ERA5返回网格",
+  "coordinate_source": "https://www.abcdtools.com/city-to-latlong/5392992",
+  "timezone": "Asia/Shanghai",
+  "forecast_api": "https://api.open-meteo.com/v1/forecast",
+  "historical_api": "https://archive-api.open-meteo.com/v1/archive",
+  "source_name": "Open-Meteo Weather Forecast API",
+  "current_fields": [
+    "temperature_2m",
+    "relative_humidity_2m",
+    "precipitation",
+    "wind_speed_10m"
+  ],
+  "hourly_fields": [
+    "temperature_2m",
+    "relative_humidity_2m",
+    "precipitation",
+    "wind_speed_10m"
+  ],
+  "request_timeout": {
+    "connect_seconds": 10,
+    "read_seconds": 30
+  },
+  "retry": {
+    "max_attempts_after_first": 2,
+    "ordinary_wait_seconds": [2, 5]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "config_version": "qy-apple-rules-v1.0",
+  "location_name": "甘肃省庆阳市西峰区城市代表点",
+  "model_name": "era5",
+  "years": [2023, 2024, 2025],
+  "backtest_years": [2023, 2024],
+  "independent_display_year": 2025,
+  "event_merge_max_gap_hours": 0,
+  "phenology_windows": [
+    {
+      "code": "bud_flower_bud",
+      "name": "萌芽／花蕾关注窗口",
+      "start_month_day": "04-01",
+      "end_month_day": "04-15",
+      "basis": "依据陇东苹果露绿至幼果主要处于4—5月的公开研究，划作工程近似窗口。"
+    },
+    {
+      "code": "flowering",
+      "name": "开花窗口",
+      "start_month_day": "04-16",
+      "end_month_day": "04-27",
+      "basis": "公开研究给出陇东苹果平均开花始期4月16日、盛期4月20日、末期4月27日。"
+    },
+    {
+      "code": "young_fruit",
+      "name": "幼果窗口",
+      "start_month_day": "04-28",
+      "end_month_day": "05-31",
+      "basis": "承接平均开花末期并覆盖5月幼果关注期，属于工程近似。"
+    }
+  ],
+  "rules": [
+    {
+      "rule_code": "spring_low_temperature",
+      "risk_type": "春季低温",
+      "metric": "temperature_2m",
+      "operator": "<=",
+      "unit": "℃",
+      "attention_threshold": 0.0,
+      "high_threshold": -2.0,
+      "phenology_restricted": true,
+      "aggregation": "min",
+      "description": "仅在萌芽／花蕾、开花和幼果窗口运行；不表示霜冻灾害已经被证实。"
+    },
+    {
+      "rule_code": "heavy_hourly_precipitation",
+      "risk_type": "强降水",
+      "metric": "precipitation",
+      "operator": ">=",
+      "unit": "mm",
+      "attention_threshold": 5.0,
+      "high_threshold": 10.0,
+      "phenology_restricted": false,
+      "aggregation": "max",
+      "description": "逐小时降水量达到阈值的工程提示规则，不等同于官方暴雨预警。"
+    },
+    {
+      "rule_code": "strong_wind",
+      "risk_type": "大风",
+      "metric": "wind_speed_10m",
+      "operator": ">=",
+      "unit": "km/h",
+      "attention_threshold": 29.0,
+      "high_threshold": 39.0,
+      "phenology_restricted": false,
+      "aggregation": "max",
+      "description": "10米风速工程提示规则；39 km/h约对应6级强风下限，不等同于官方大风预警。"
+    }
+  ],
+  "status_note": "以上为可复现的工程初值，不是官方农业气象灾害指标；不同年份、品种和果园的物候期会变化。"
+}
